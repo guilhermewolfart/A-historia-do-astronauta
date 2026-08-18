@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background:
+        radial-gradient(circle at top, #18235c 0%, #080b25 45%, #02030d 100%);
+    overflow-x: hidden;
+}
+
+/* Estrelas */
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(#ffffff 1px, transparent 1px);
+    background-size: 80px 80px, 130px 130px;
+    background-position: 0 0, 40px 60px;
+    opacity: 0.6;
+    z-index: 0;
+}
+
+body::after {
+    background-size: 170px 170px;
+    opacity: 0.3;
+}
+
+header {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 60px 20px 30px;
+}
+
+header h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    color: #ffffff;
+    text-shadow:
+        0 0 10px #6c63ff,
+        0 0 30px #6c63ff;
+    margin-bottom: 15px;
+}
+
+header p {
+    color: #bfc8ff;
+    font-size: 1.2rem;
+}
+
+main {
+    position: relative;
+    z-index: 2;
+    width: min(900px, 90%);
+    margin: auto;
+}
+
+.hero {
+    position: relative;
+    padding: 30px 0 80px;
+}
+
+/* Astronauta */
+
+.astronaut {
+    position: absolute;
+    right: -80px;
+    top: 20px;
+    font-size: 100px;
+    animation: floating 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px #ffffff);
+}
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-25px) rotate(5deg);
+    }
+}
+
+/* Planeta */
+
+.planet {
+    position: absolute;
+    left: -150px;
+    top: 350px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 30% 30%, #73e8ff, #2468d8 45%, #10186b 80%);
+    box-shadow:
+        0 0 30px #2468d8,
+        0 0 80px rgba(36, 104, 216, 0.6);
+    opacity: 0.8;
+}
+
+/* História */
+
+.story {
+    position: relative;
+    z-index: 3;
+    background: rgba(10, 14, 45, 0.82);
+    border: 1px solid rgba(130, 150, 255, 0.35);
+    border-radius: 25px;
+    padding: 45px;
+    box-shadow:
+        0 0 40px rgba(74, 67, 180, 0.25),
+        inset 0 0 30px rgba(100, 100, 255, 0.05);
+    backdrop-filter: blur(8px);
+}
+
+.story h2 {
+    color: #7ee8ff;
+    font-size: 1.8rem;
+    margin: 30px 0 15px;
+    text-shadow: 0 0 10px #27cfff;
+}
+
+.story h2:first-child {
+    margin-top: 0;
+}
+
+.story p {
+    color: #e5e8ff;
+    font-size: 1.1rem;
+    line-height: 1.9;
+    margin-bottom: 18px;
+}
+
+.story strong {
+    color: #ffe66d;
+}
+
+.quote {
+    padding: 20px;
+    margin: 25px 0;
+    border-left: 4px solid #8b7cff;
+    background: rgba(100, 90, 255, 0.12);
+    color: #cfc9ff !important;
+    font-style: italic;
+    border-radius: 0 12px 12px 0;
+}
+
+.end {
+    text-align: center;
+    font-size: 1.8rem !important;
+    color: #ffe66d !important;
+    margin-top: 40px;
+    text-shadow: 0 0 15px #ffd700;
+}
+
+/* Rodapé */
+
+footer {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 30px;
+    color: #8f98c9;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsividade */
+
+@media (max-width: 700px) {
+
+    header {
+        padding-top: 40px;
+    }
+
+    .astronaut {
+        position: relative;
+        right: auto;
+        top: auto;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 80px;
+    }
+
+    .planet {
+        width: 120px;
+        height: 120px;
+        left: -60px;
+        top: 500px;
+    }
+
+    .story {
+        padding: 25px;
+        border-radius: 18px;
+    }
+
+    .story h2 {
+        font-size: 1.4rem;
+    }
+
+    .story p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+}
